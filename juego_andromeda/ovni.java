@@ -15,5 +15,17 @@ public class ovni extends Actor
     public void act()
     {
         // Add your action code here.
+    if(Greenfoot.isKeyDown("rigth")){
+        setLocation(getX() + 1, getY());
+    }
+    if(Greenfoot.isKeyDown("left")){
+        setLocation(getX() - 1, getY());
+    }
+    if(Greenfoot.isKeyDown("up")){
+        setLocation(getX() , getY() -1);
+    }
+    if(Greenfoot.isKeyDown("down")){
+        setLocation(getX() , getY() +1);
+    }
     }
 }
