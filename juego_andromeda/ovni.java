@@ -8,6 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ovni extends Actor
 {
+    private int speed;
+    
+    public ovni(int v) {
+        speed = v;
+    }
+    
     /**
      * Act - do whatever the ovni wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -15,17 +21,21 @@ public class ovni extends Actor
     public void act()
     {
         // Add your action code here.
-    if(Greenfoot.isKeyDown("rigth")){
-        setLocation(getX() + 1, getY());
+    if(Greenfoot.isKeyDown("right")){
+        if(getX() < 440)
+            setLocation(getX() + speed, getY());
     }
     if(Greenfoot.isKeyDown("left")){
-        setLocation(getX() - 1, getY());
+        if(getX() > 160)
+            setLocation(getX() - speed, getY());
     }
     if(Greenfoot.isKeyDown("up")){
-        setLocation(getX() , getY() -1);
+        if(getY() > 160)
+            setLocation(getX() , getY() - speed);
     }
     if(Greenfoot.isKeyDown("down")){
-        setLocation(getX() , getY() +1);
+        if(getY() < 370)
+            setLocation(getX() , getY() + speed);
     }
     }
 }
