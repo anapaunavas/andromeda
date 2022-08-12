@@ -8,6 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class meteoro extends Actor
 {
+    private int speed;
+    
+    public meteoro(int v) {
+        speed = v;
+    }
     /**
      * Act - do whatever the meteoro wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -15,5 +20,10 @@ public class meteoro extends Actor
     public void act()
     {
         // Add your action code here.
+        setLocation(getX(), getY() + speed);
+        if( getY() >= getWorld().getHeight() - 1) {
+            MyWorld juego = (MyWorld) getWorld();
+            juego.removeObject(this);
+        }
     }
 }

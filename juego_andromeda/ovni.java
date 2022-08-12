@@ -21,21 +21,31 @@ public class ovni extends Actor
     public void act()
     {
         // Add your action code here.
-    if(Greenfoot.isKeyDown("right")){
-        if(getX() < 440)
-            setLocation(getX() + speed, getY());
+        if(Greenfoot.isKeyDown("right")){
+            if(getX() < 440)
+                setLocation(getX() + speed, getY());
+        }
+        if(Greenfoot.isKeyDown("left")){
+            if(getX() > 160)
+                setLocation(getX() - speed, getY());
+        }
+        if(Greenfoot.isKeyDown("up")){
+            if(getY() > 160)
+                setLocation(getX() , getY() - speed);
+        }
+        if(Greenfoot.isKeyDown("down")){
+            if(getY() < 370)
+                setLocation(getX() , getY() + speed);
+        }
     }
-    if(Greenfoot.isKeyDown("left")){
-        if(getX() > 160)
-            setLocation(getX() - speed, getY());
-    }
-    if(Greenfoot.isKeyDown("up")){
-        if(getY() > 160)
-            setLocation(getX() , getY() - speed);
-    }
-    if(Greenfoot.isKeyDown("down")){
-        if(getY() < 370)
-            setLocation(getX() , getY() + speed);
-    }
+    
+    public void checkCollision(){
+        Actor collided = getOneIntersectingObject(meteoro.class);
+        if(collided !=null){
+            getWorld().removeObject(collided);
+            getWorld().removeObject(this);
+            Greenfoot.stop();
+        }
     }
 }
+
