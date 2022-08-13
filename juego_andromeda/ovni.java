@@ -47,5 +47,9 @@ public class ovni extends Actor
             Greenfoot.stop();
         }
     }
+    
+    public void aumentar_velocidad(){
+        speed++;
+    }
 }
 

@@ -24,6 +24,9 @@ public class roca extends Actor
         if( getY() >= getWorld().getHeight() - 1) {
             MyWorld juego = (MyWorld) getWorld();
             juego.removeObject(this);
+            juego.aumentar_puntuacion(10);
+            juego.disminuir_numero_obstaculos();
+            juego.aumentar_numero_adelantamiento();
         }
     }
 }
