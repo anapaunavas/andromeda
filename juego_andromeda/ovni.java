@@ -20,7 +20,13 @@ public class ovni extends Actor
      */
     public void act()
     {
+        moveAround();
+        hitEnemy();
         // Add your action code here.
+    }
+        
+    public void moveAround()
+    {
         if(Greenfoot.isKeyDown("right")){
             if(getX() < 440)
                 setLocation(getX() + speed, getY());
@@ -39,10 +45,16 @@ public class ovni extends Actor
         }
     }
     
-    public void checkCollision(){
-        Actor collided = getOneIntersectingObject(meteoro.class);
-        if(collided !=null){
-            getWorld().removeObject(collided);
+    public void hitEnemy(){
+        if (isTouching(meteoro.class))
+        {
+            getWorld().addObject(new game_over(), 300,200);
+            getWorld().removeObject(this);
+            Greenfoot.stop();
+            
+        } else if (isTouching(roca.class))
+        {
+            getWorld().addObject(new game_over(), 300,200);
             getWorld().removeObject(this);
             Greenfoot.stop();
         }
