@@ -29,7 +29,7 @@ public class MyWorld extends World
         
         numero_adelantamiento = 0;
         numero_adelant_nivel = 4;
-        velocidad_ovni = 2;
+        velocidad_ovni = 3;
         
         score = new contador("Puntos: ");
         level = new contador("Nivel: ");
